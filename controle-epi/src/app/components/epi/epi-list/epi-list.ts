@@ -27,5 +27,6 @@ export class EpiList {
         console.error('Erro ao carregar EPIs', err);
       }
     })
+  
   }
 }

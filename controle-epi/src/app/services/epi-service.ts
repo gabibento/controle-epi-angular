@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 export interface Epi {
   id: number;
-  nome: string;
-  quantidade: number;
+  name: string;
+  quantity: number;
 }
 
 @Injectable({
