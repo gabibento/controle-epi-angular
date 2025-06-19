@@ -1,1 +1,12 @@
-<p>login works!</p>
+<h2>Login</h2>
+
+<form (ngSubmit)="login()">
+    <label for="email">Email</label>
+    <input type="email" [(ngModel)]="email" name="email">
+
+    <label for="password">Password</label>
+    <input type="text" [(ngModel)]="password" name="password">
+
+    <button type="submit">Entrar</button>
+</form>
+<p *ngIf="error" style="color: red;">{{ error }}</p>
