@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Observable, tap } from 'rxjs';
 export class AuthService {
   private apiUrl = 'http://localhost:8080/auth';
 
-   constructor(private http: HttpClient) {}
+   constructor(private http: HttpClient, private router: Router) {}
 
    login(email: string, password: string): Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/login`, {email, password}).pipe(
@@ -17,8 +18,10 @@ export class AuthService {
       })
     )
    }
-    logout() {
+
+  logout() {
     localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
   getToken(): string | null {
