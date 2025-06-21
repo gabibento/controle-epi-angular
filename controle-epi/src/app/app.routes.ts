@@ -2,9 +2,11 @@ import { Routes } from '@angular/router';
 import { Home } from './components/pages/home/home';
 import { Login } from './components/login/login';
 import { Register } from './components/register/register';
+import { EpiForm } from './components/epi-form/epi-form';
 
 export const routes: Routes = [
     {path: "", component: Login},
     {path: "home", component: Home},
-    {path: "register", component: Register}
+    {path: "register", component: Register},
+    {path: "epiForm", component: EpiForm}
 ];

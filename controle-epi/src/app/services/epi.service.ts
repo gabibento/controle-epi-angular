@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 export interface Epi {
-  id: number;
   name: string;
   quantity: number;
 }
@@ -15,6 +14,10 @@ export class EpiService {
   private apiUrl = 'http://localhost:8080/epis';
 
   constructor(private http: HttpClient) { }
+
+  create(epi: Epi){
+    return this.http.post<Epi>(this.apiUrl, epi);
+  }
 
   getAll(): Observable<Epi[]>{
     return this.http.get<Epi[]>(this.apiUrl);
