@@ -18,6 +18,9 @@ export class AuthService {
       })
     )
    }
+   register(user: any){
+    return this.http.post(`${this.apiUrl}/register`, user);
+   }
 
   logout() {
     localStorage.removeItem('token');
@@ -39,7 +42,7 @@ export class AuthService {
 
     const payload = JSON.parse(atob(token.split('.')[1]));
 
-    const roles = payload.roles || payload.authorities;
+    const roles = payload.role;
     if (!roles) return null;
 
     if(Array.isArray(roles)){

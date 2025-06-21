@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Epi, EpiService } from '../../../services/epi-service';
+import { Epi, EpiService } from '../../../services/epi.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
