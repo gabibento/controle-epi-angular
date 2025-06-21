@@ -1,12 +1,3 @@
 <h2>Lista de EPIs</h2>
 
-<table >
-  <tr>
-    <th>Nome</th>
-    <th>Quantidade</th>
-  </tr>
-  <tr *ngFor="let epi of epis">
-    <td>{{ epi.name }}</td>
-    <td>{{ epi.quantity }}</td>
-  </tr>
-</table>
+<app-list-component [columns]="columns" [data]="epis"></app-list-component>

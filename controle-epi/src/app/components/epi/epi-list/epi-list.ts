@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 
-import { Epi, EpiService } from '../../../services/epi.service';
+import { EpiService } from '../../../services/epi.service';
 import { CommonModule } from '@angular/common';
+import { ListComponent } from '../../list-component/list-component';
+import { Epi } from '../../../interfaces/Epi';
 
 @Component({
   selector: 'app-epi-list',
-  imports: [CommonModule],
+  imports: [CommonModule, ListComponent],
   templateUrl: './epi-list.html',
   styleUrl: './epi-list.css'
 })
 export class EpiList {
   epis: Epi[] = []
+  columns = ["name", "quantity"]
 
   constructor(private epiService: EpiService){}
 

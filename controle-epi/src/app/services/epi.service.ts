@@ -19,3 +19,4 @@ export class EpiService {
     return this.http.get<Epi[]>(this.apiUrl);
   } 
 }
+

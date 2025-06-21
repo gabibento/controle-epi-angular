@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Epi, EpiService } from '../../services/epi.service';
+import { EpiService } from '../../services/epi.service';
 import { Router } from '@angular/router';
+import { Epi } from '../../interfaces/Epi';
 
 @Component({
   selector: 'app-epi-form',
