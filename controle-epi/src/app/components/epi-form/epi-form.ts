@@ -12,6 +12,7 @@ import { Epi } from '../../interfaces/Epi';
 })
 export class EpiForm {
   epi: Epi = {
+    id: 0,
     name: '',
     quantity: 1
   };

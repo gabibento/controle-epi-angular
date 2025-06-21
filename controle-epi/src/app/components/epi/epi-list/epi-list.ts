@@ -4,6 +4,7 @@ import { EpiService } from '../../../services/epi.service';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from '../../list-component/list-component';
 import { Epi } from '../../../interfaces/Epi';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-epi-list',
@@ -15,13 +16,13 @@ export class EpiList {
   epis: Epi[] = []
   columns = ["name", "quantity"]
 
-  constructor(private epiService: EpiService){}
+  constructor(private epiService: EpiService, private router: Router){}
 
    ngOnInit(): void {
-    this.loadEpis();
+    this.getAll();
   }
 
-  loadEpis(){
+  getAll(){
     this.epiService.getAll().subscribe({
       next: (data) => {
         this.epis = data;
@@ -30,6 +31,8 @@ export class EpiList {
         console.error('Erro ao carregar EPIs', err);
       }
     })
-  
+  }
+  getLoans(epi: Epi){
+    this.router.navigate(['/loans/epi', epi.id]);
   }
 }

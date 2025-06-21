@@ -3,10 +3,12 @@ import { Home } from './components/pages/home/home';
 import { Login } from './components/login/login';
 import { Register } from './components/register/register';
 import { EpiForm } from './components/epi-form/epi-form';
+import { UserList } from './components/user/user-list/user-list';
 
 export const routes: Routes = [
     {path: "", component: Login},
     {path: "home", component: Home},
     {path: "register", component: Register},
-    {path: "epiForm", component: EpiForm}
+    {path: "epiForm", component: EpiForm},
+    {path: "users", component: UserList}
 ];

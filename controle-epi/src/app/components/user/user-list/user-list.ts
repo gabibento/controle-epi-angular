@@ -12,7 +12,7 @@ import { ListComponent } from '../../list-component/list-component';
 })
 export class UserList {
   users: User[] = []
-  columns = ["name", "email", "password", "roles"]
+  columns = ["name", "email"]
 
   constructor(private userService: UserService){}
 

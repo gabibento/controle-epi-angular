@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list-component',
@@ -10,4 +10,10 @@ import { Component, Input } from '@angular/core';
 export class ListComponent {
   @Input() columns: string[] = [];
   @Input() data: any[] = [];
+
+  @Output() rowClick = new EventEmitter<any>();
+
+  onRowClick(item: any){
+    this.rowClick.emit(item);
+  }
 }

@@ -7,12 +7,7 @@
         <a (click)="logout()">Sair</a>
     </li>
 
-    <li *ngIf="isAdmin()">
-        <a>Empréstimos</a>
-    </li>
-    <li *ngIf="isAdmin()">
-        <a>Devoluções</a>
-    </li>
+
     <li *ngIf="isAdmin()">
       <a routerLink="/register">Cadastrar Usuários</a>
     </li>
@@ -20,7 +15,13 @@
       <a routerLink="/epiForm">Criar EPI</a>
     </li>
     <li *ngIf="isAdmin()">
-        <a>Usuários</a>
+        <a routerLink="/users">Usuários</a>
+    </li>
+        <li *ngIf="isAdmin()">
+        <a>Empréstimos</a>
+    </li>
+    <li *ngIf="isAdmin()">
+        <a>Devoluções</a>
     </li>
 
     <li *ngIf="!isAdmin()">
