@@ -3,6 +3,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
 
+export interface User{
+  name: string;
+  email: string;
+  password: string;
+  role: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +25,7 @@ export class AuthService {
       })
     )
    }
-   register(user: any){
+   register(user: User){
     return this.http.post(`${this.apiUrl}/register`, user);
    }
 

@@ -14,9 +14,12 @@
         <a>Devoluções</a>
     </li>
     <li *ngIf="isAdmin()">
+      <a routerLink="/register">Cadastrar Usuários</a>
+    </li>
+    <li *ngIf="isAdmin()">
         <a>Usuários</a>
     </li>
-    
+
     <li *ngIf="!isAdmin()">
         <a>Meus empréstimos</a>
     </li>
