@@ -1,11 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface Epi {
-  name: string;
-  quantity: number;
-}
+import { Epi } from '../interfaces/Epi';
 
 @Injectable({
   providedIn: 'root'
