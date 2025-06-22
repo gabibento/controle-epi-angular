@@ -31,4 +31,15 @@ export class LoanList {
       }
     })
   }
+  getByEpi(id: number){
+    this.loanService.getByEpi(id).subscribe({
+      next: (data) => {
+        this.loans = data;
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
+  }
+  
 }

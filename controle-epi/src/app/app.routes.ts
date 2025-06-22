@@ -5,6 +5,8 @@ import { Register } from './components/register/register';
 import { EpiForm } from './components/epi-form/epi-form';
 import { UserList } from './components/user/user-list/user-list';
 import { LoanList } from './components/loan/loan-list/loan-list';
+import { EpiLoanList } from './components/epi-loan-list/epi-loan-list';
+import { EpiList } from './components/epi/epi-list/epi-list';
 
 export const routes: Routes = [
     {path: "", component: Login},
@@ -12,5 +14,7 @@ export const routes: Routes = [
     {path: "register", component: Register},
     {path: "epiForm", component: EpiForm},
     {path: "users", component: UserList},
-    {path: "loans", component: LoanList}
+    {path: "loans", component: LoanList},
+    {path: "epis", component: EpiList},
+    {path: "epis/:id/loans", component: EpiLoanList}
 ];

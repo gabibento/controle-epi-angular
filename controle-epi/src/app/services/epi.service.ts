@@ -18,5 +18,8 @@ export class EpiService {
   getAll(): Observable<Epi[]>{
     return this.http.get<Epi[]>(this.apiUrl);
   } 
+  getById(id: number): Observable<Epi>{
+    return this.http.get<Epi>(`${this.apiUrl}/${id}`);
+  }
 }
 

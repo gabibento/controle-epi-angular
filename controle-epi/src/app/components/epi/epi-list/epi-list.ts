@@ -33,6 +33,6 @@ export class EpiList {
     })
   }
   getLoans(epi: Epi){
-    this.router.navigate(['/loans/epi', epi.id]);
+    this.router.navigate(['/epis', epi.id, 'loans']);
   }
 }
