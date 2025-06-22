@@ -15,6 +15,7 @@ export class Register {
   constructor(private authService: AuthService, private router: Router){ }
 
   user: User = {
+    id: 0,
     name: '',
     email: '',
     password: '',

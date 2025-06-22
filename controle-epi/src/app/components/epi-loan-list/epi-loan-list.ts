@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { LoanService } from '../../services/loan.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Loan } from '../../interfaces/Loan';
 import { ListComponent } from '../list-component/list-component';
 import { CommonModule } from '@angular/common';
@@ -21,7 +21,7 @@ export class EpiLoanList {
   loading = true;
   error = false;
 
-  constructor(private loanService: LoanService, private route: ActivatedRoute, private epiService: EpiService){}
+  constructor(private loanService: LoanService, private epiService: EpiService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit() {
     this.epiId = Number(this.route.snapshot.paramMap.get("id"));
@@ -53,5 +53,8 @@ export class EpiLoanList {
         this.loading = false;
       }
     })
+  }
+  createLoan(){
+    this.router.navigate(['/loanForm'], {queryParams: { epiId: this.epiId}});
   }
 }

@@ -7,6 +7,7 @@ import { UserList } from './components/user/user-list/user-list';
 import { LoanList } from './components/loan/loan-list/loan-list';
 import { EpiLoanList } from './components/epi-loan-list/epi-loan-list';
 import { EpiList } from './components/epi/epi-list/epi-list';
+import { LoanForm } from './components/loan/loan-form/loan-form';
 
 export const routes: Routes = [
     {path: "", component: Login},
@@ -16,5 +17,6 @@ export const routes: Routes = [
     {path: "users", component: UserList},
     {path: "loans", component: LoanList},
     {path: "epis", component: EpiList},
-    {path: "epis/:id/loans", component: EpiLoanList}
+    {path: "epis/:id/loans", component: EpiLoanList},
+    {path: "loanForm", component: LoanForm}
 ];
