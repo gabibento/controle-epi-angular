@@ -3,6 +3,8 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../interfaces/User';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from '../../list-component/list-component';
+import { LoanService } from '../../../services/loan.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +16,7 @@ export class UserList {
   users: User[] = []
   columns = ["name", "email"]
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private router: Router){}
 
   ngOnInit(): void {
     this.getAll();
@@ -29,6 +31,9 @@ export class UserList {
         console.log(err)
       }
     })
+  }
+  getLoans(user: User){
+    this.router.navigate([`/users/${user.id}/loans`]);
   }
 
 }

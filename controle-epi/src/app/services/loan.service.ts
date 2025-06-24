@@ -23,4 +23,7 @@ export class LoanService {
   getByEpi(id: number): Observable<Loan[]>{
     return this.http.get<Loan[]>(`${this.apiUrl}/epi/${id}`);
   }
+  getByUser(id: number): Observable<Loan[]>{
+    return this.http.get<Loan[]>(`${this.apiUrl}/user/${id}`);
+  }
 }
