@@ -5,6 +5,7 @@ import { Loan } from '../../interfaces/Loan';
 import { ListComponent } from '../list-component/list-component';
 import { CommonModule } from '@angular/common';
 import { EpiService } from '../../services/epi.service';
+import { Epi } from '../../interfaces/Epi';
 
 @Component({
   selector: 'app-epi-loan-list',
@@ -56,5 +57,8 @@ export class EpiLoanList {
   }
   createLoan(){
     this.router.navigate(['/loanForm'], {queryParams: { epiId: this.epiId}});
+  }
+  updateEpi(){
+    this.router.navigate(['/epis/' + this.epiId + '/edit']);
   }
 }
