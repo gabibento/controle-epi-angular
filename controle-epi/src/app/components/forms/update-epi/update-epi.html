@@ -1,4 +1,7 @@
-<h2>Atualizar Quantidade</h2>
-<form action="">
-    <input type="number" >
+<h2>Atualizar quantidade</h2>
+<form (ngSubmit)="update()">
+    <label for="quantity">Quantidade</label>
+    <input type="number" [(ngModule)]="quantity">
+
+    <button type="submit">Atualizar</button>
 </form>

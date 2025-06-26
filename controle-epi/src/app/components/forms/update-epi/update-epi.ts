@@ -1,12 +1,12 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { EpiService } from '../../../services/epi.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-update-epi',
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './update-epi.html',
   styleUrl: './update-epi.css'
 })
@@ -14,14 +14,21 @@ export class UpdateEpi {
   quantity!: number;
   epiId!: number;
 
-  constructor(private epiService: EpiService, private router: Router, private route: ActivatedRoute){}
+  constructor(private epiService: EpiService, private route: ActivatedRoute, private router: Router){}
 
   ngOnInit(){
     this.epiId = Number(this.route.snapshot.paramMap.get("id"));
+    console.log(this.epiId)
   }
 
   update(){
-    this.epiService.
+    this.epiService.update(this.epiId, this.quantity).subscribe({
+      next: () => {
+        this.router.navigate(["/home"])
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
   }
-
 }

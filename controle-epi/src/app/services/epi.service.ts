@@ -21,8 +21,12 @@ export class EpiService {
   getById(id: number): Observable<Epi>{
     return this.http.get<Epi>(`${this.apiUrl}/${id}`);
   }
-  update(id: number, quantity: number){
-    return this.http.patch<Epi>(``)
-  }
+ update(id: number, quantity: number) {
+  return this.http.patch<Epi>(`${this.apiUrl}?id=${id}`, JSON.stringify(quantity), {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
+}
 }
 
