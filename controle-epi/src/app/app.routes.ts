@@ -2,13 +2,13 @@ import { Routes } from '@angular/router';
 import { Home } from './components/pages/home/home';
 import { Login } from './components/login/login';
 import { Register } from './components/register/register';
-import { EpiForm } from './components/epi-form/epi-form';
-import { UserList } from './components/user/user-list/user-list';
-import { LoanList } from './components/loan/loan-list/loan-list';
+import { EpiForm } from './components/forms/epi-form/epi-form';
+import { UserList } from './components/lists/user-list/user-list';
+import { LoanList } from './components/lists/loan-list/loan-list';
 import { EpiLoanList } from './components/epi-loan-list/epi-loan-list';
-import { EpiList } from './components/epi/epi-list/epi-list';
-import { LoanForm } from './components/loan/loan-form/loan-form';
-import { UserLoanList } from './components/user-loan-list/user-loan-list';
+import { EpiList } from './components/lists/epi-list/epi-list';
+import { LoanForm } from './components/forms/loan-form/loan-form';
+import { UserLoanList } from './components/lists/user-loan-list/user-loan-list';
 import { UpdateEpi } from './components/forms/update-epi/update-epi';
 
 export const routes: Routes = [

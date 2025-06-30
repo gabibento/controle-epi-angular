@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { LoanService } from '../../services/loan.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Loan } from '../../interfaces/Loan';
-import { ListComponent } from '../list-component/list-component';
+import { ListComponent } from '../lists/list-component/list-component';
 import { CommonModule } from '@angular/common';
 import { EpiService } from '../../services/epi.service';
 import { Epi } from '../../interfaces/Epi';

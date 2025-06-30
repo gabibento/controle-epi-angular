@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { EpiList } from '../../epi/epi-list/epi-list';
+import { EpiList } from '../../lists/epi-list/epi-list';
 import { Nav } from '../nav/nav';
 
 @Component({
