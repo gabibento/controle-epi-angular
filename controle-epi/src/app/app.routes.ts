@@ -5,17 +5,19 @@ import { Register } from './components/register/register';
 import { EpiForm } from './components/forms/epi-form/epi-form';
 import { UserList } from './components/lists/user-list/user-list';
 import { LoanList } from './components/lists/loan-list/loan-list';
-import { EpiLoanList } from './components/epi-loan-list/epi-loan-list';
+import { EpiLoanList } from './components/lists/epi-loan-list/epi-loan-list';
 import { EpiList } from './components/lists/epi-list/epi-list';
 import { LoanForm } from './components/forms/loan-form/loan-form';
 import { UserLoanList } from './components/lists/user-loan-list/user-loan-list';
 import { UpdateEpi } from './components/forms/update-epi/update-epi';
+import { UpdateUser } from './components/forms/update-user/update-user';
 
 export const routes: Routes = [
     {path: "", component: Login},
     {path: "home", component: Home},
     {path: "register", component: Register},
-     {path: "epiForm", component: EpiForm},
+    {path: "epiForm", component: EpiForm},
+    {path: "userEdit", component: UpdateUser},
     {path: "epiEdit", component: UpdateEpi},
     {path: "users", component: UserList},
     {path: "loans", component: LoanList},

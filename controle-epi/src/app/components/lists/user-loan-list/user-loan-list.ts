@@ -57,4 +57,7 @@ export class UserLoanList {
   createLoan(){
     this.router.navigate(["/loanForm"], {queryParams: {userId: this.userId}});
   }
+    updateUser(){
+    this.router.navigate(['/userEdit'], {queryParams: { id: this.userId}});
+  }
 }

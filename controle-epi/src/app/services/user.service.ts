@@ -17,4 +17,8 @@ export class UserService {
   getById(id: number): Observable<User>{
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
+  update(id: number, email: string) {
+    console.log(id);
+    return this.http.patch<User>(`${this.apiUrl}?id=${id}`, {email});
+  }
 }
