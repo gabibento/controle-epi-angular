@@ -1,0 +1,9 @@
+<form (ngSubmit)="create()">
+    <label for="name">Nome</label>
+    <input type="text" name="name" [(ngModel)]="epi.name">
+
+    <label for="quantity">Quantidade</label>
+    <input type="number" name="quantity" [(ngModel)]="epi.quantity">
+
+    <button type="submit">Criar EPI</button>
+</form>

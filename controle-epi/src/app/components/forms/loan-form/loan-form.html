@@ -1,0 +1,25 @@
+<h2>Criar Empréstimo</h2>
+
+<form (ngSubmit)="create()">
+    <label for="epi">EPI</label>
+    <select name="epiId" id="epi" [(ngModel)]="loan.epiId" required>
+        <option *ngFor="let epi of epis" [value]="epi.id">
+            {{epi.name}}
+        </option>
+    </select>
+
+    <label for="user">Colaborador</label>
+    <select name="userId" id="user" [(ngModel)]="loan.userId" required>
+        <option *ngFor="let user of users" [value]="user.id">
+            {{user.email}}
+        </option>
+    </select>
+
+    <label for="pickupDate">Data de empréstimo</label>
+    <input type="date" id="pickupDate" [(ngModel)]="loan.pickupDate" name="pickupDate" required />
+
+    <label for="dueDate">Data de devolução prevista</label>
+    <input type="date" id="dueDate" [(ngModel)]="loan.dueDate" name="dueDate" required>
+
+    <button type="submit">Criar Empréstimo</button>
+</form>

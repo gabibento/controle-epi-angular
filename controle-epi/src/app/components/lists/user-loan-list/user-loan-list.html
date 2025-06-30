@@ -1,0 +1,9 @@
+<h2>Empréstimos do colaborador {{ userEmail }}</h2>
+
+<app-list-component [columns]="columns" [data]="loans" *ngIf="hasLoans"></app-list-component>
+
+<p *ngIf="loading">Carregando...</p>
+
+<p *ngIf="!hasLoans">Não há empréstimos cadastrados para esse usuário</p>
+
+<button (click)="createLoan()">Criar Empréstimo</button>
