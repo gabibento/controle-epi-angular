@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Epi } from '../interfaces/Epi';
+import { EpiFormInterface } from '../interfaces/EpiFormInterface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class EpiService {
 
   constructor(private http: HttpClient) {}
 
-  create(epi: Epi) {
+  create(epi: EpiFormInterface) {
     return this.http.post<Epi>(this.apiUrl, epi);
   }
 
