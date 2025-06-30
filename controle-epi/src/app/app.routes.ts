@@ -15,7 +15,7 @@ export const routes: Routes = [
     {path: "", component: Login},
     {path: "home", component: Home},
     {path: "register", component: Register},
-    {path: "epis/:id/edit", component: EpiForm},
+     {path: "epiForm", component: EpiForm},
     {path: "epiEdit", component: UpdateEpi},
     {path: "users", component: UserList},
     {path: "loans", component: LoanList},
