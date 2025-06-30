@@ -59,6 +59,7 @@ export class EpiLoanList {
     this.router.navigate(['/loanForm'], {queryParams: { epiId: this.epiId}});
   }
   updateEpi(){
-    this.router.navigate(['/epis/' + this.epiId + '/edit']);
+    console.log(this.epiId)
+    this.router.navigate(['/epiEdit'], {queryParams: { id: this.epiId}});
   }
 }

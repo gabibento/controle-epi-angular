@@ -17,11 +17,18 @@ export class UpdateEpi {
   constructor(private epiService: EpiService, private router: Router, private route: ActivatedRoute){}
 
   ngOnInit(){
-    this.epiId = Number(this.route.snapshot.paramMap.get("id"));
+    this.epiId = Number(this.route.snapshot.queryParamMap.get("id"));
   }
 
   update(){
-    this.epiService.
+    this.epiService.update(this.epiId, this.quantity).subscribe({
+      next: () => {
+        this.router.navigate(["/home"]);
+      },
+      error: (err) => {
+        console.log(err);
+      }
+    })
   }
 
 }

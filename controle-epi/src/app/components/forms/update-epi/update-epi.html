@@ -1,4 +1,5 @@
 <h2>Atualizar Quantidade</h2>
-<form action="">
-    <input type="number" >
+<form (ngSubmit)="update()">
+    <input type="number" name="quantity" [(ngModel)]="this.quantity">
+    <button type="submit">Atualizar</button>
 </form>
