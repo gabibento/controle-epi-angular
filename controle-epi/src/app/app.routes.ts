@@ -11,6 +11,8 @@ import { LoanForm } from './components/forms/loan-form/loan-form';
 import { UserLoanList } from './components/lists/user-loan-list/user-loan-list';
 import { UpdateEpi } from './components/forms/update-epi/update-epi';
 import { UpdateUser } from './components/forms/update-user/update-user';
+import { DevolutionList } from './components/lists/devolution-list/devolution-list';
+import { DevolutionForm } from './components/forms/devolution-form/devolution-form';
 
 export const routes: Routes = [
     {path: "", component: Login},
@@ -24,5 +26,7 @@ export const routes: Routes = [
     {path: "epis", component: EpiList},
     {path: "epis/:id/loans", component: EpiLoanList},
     {path: "users/:id/loans", component: UserLoanList},
-    {path: "loanForm", component: LoanForm}
+    {path: "loanForm", component: LoanForm},
+    {path: "loan/:id/devolution", component: DevolutionList},
+    {path: "devolution-form/:id", component: DevolutionForm}
 ];

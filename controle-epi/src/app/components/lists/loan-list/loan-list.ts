@@ -3,6 +3,8 @@ import { LoanService } from '../../../services/loan.service';
 import { Loan } from '../../../interfaces/Loan';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from '../list-component/list-component';
+import { DevolutionService } from '../../../services/devolution-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-loan-list',
@@ -19,7 +21,7 @@ export class LoanList {
     this.getAll();
   }
 
-  constructor(private loanService: LoanService){}
+  constructor(private loanService: LoanService, private router: Router){}
 
   getAll(){
     this.loanService.getAll().subscribe({
@@ -40,6 +42,9 @@ export class LoanList {
         console.log(err);
       }
     })
+  }
+  getDevolutions(loan: Loan){
+    this.router.navigate([`/loan/${loan.id}/devolution`])
   }
   
 }
