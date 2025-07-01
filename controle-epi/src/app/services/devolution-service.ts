@@ -6,7 +6,7 @@ import { DevolutionFormInterface } from '../interfaces/DevolutionFormInterface';
   providedIn: 'root'
 })
 export class DevolutionService {
-  private apiUrl = "http://localhost:8080/devolution"
+  private apiUrl = "http://localhost:8080/devolutions"
 
   constructor(private http: HttpClient) { }
 
