@@ -13,6 +13,7 @@ import { UpdateEpi } from './components/forms/update-epi/update-epi';
 import { UpdateUser } from './components/forms/update-user/update-user';
 import { DevolutionList } from './components/lists/devolution-list/devolution-list';
 import { DevolutionForm } from './components/forms/devolution-form/devolution-form';
+import { Devolution } from './components/lists/devolution/devolution';
 
 export const routes: Routes = [
     {path: "", component: Login},
@@ -27,6 +28,7 @@ export const routes: Routes = [
     {path: "epis/:id/loans", component: EpiLoanList},
     {path: "users/:id/loans", component: UserLoanList},
     {path: "loanForm", component: LoanForm},
-    {path: "loan/:id/devolution", component: DevolutionList},
+    {path: "loan/:id/devolution", component: Devolution},
+    {path: "devolutions", component: DevolutionList},
     {path: "devolution-form/:id", component: DevolutionForm}
 ];

@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { DevolutionService } from '../../../services/devolution-service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DevolutionInterface } from '../../../interfaces/DevolutionInterface';
+import { CommonModule } from '@angular/common';
+import { ListComponent } from '../list-component/list-component';
 
 @Component({
   selector: 'app-devolution-list',
-  imports: [],
+  imports: [CommonModule, ListComponent],
   templateUrl: './devolution-list.html',
   styleUrl: './devolution-list.css',
 })
 export class DevolutionList {
-  loanId!: number;
+  devolutions: DevolutionInterface[] = [];
+  columns = ["epiName", "userName", "devolutionDate"];
 
   constructor(
     private devolutionService: DevolutionService,
@@ -18,18 +22,13 @@ export class DevolutionList {
   ) {}
 
   ngOnInit() {
-    this.loanId = Number(this.route.snapshot.paramMap.get('id'));
-    this.getDevolutionsByLoan();
+    this.getAll();
   }
 
-  getDevolutionsByLoan() {
-    this.devolutionService.getByLoan(this.loanId).subscribe({
+  getAll() {
+    this.devolutionService.getAll().subscribe({
       next: (data) => {
-        console.log(data);
-
-        if (!data || (Array.isArray(data) && data.length === 0)) {
-          this.router.navigate([`/devolution-form/${this.loanId}`]);
-        }
+        this.devolutions = data;
       },
       error: (err) => {
         console.log(err);
