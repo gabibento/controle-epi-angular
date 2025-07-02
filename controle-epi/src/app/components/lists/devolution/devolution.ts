@@ -32,12 +32,11 @@ export class Devolution {
   getDevolutionsByLoan() {
     this.devolutionService.getByLoan(this.loanId).subscribe({
       next: (data) => {
-        console.log(data);
-
         if (!data) {
           this.router.navigate([`/devolution-form/${this.loanId}`]);
           return;
         }
+        
         this.devolution = data;
       },
       error: (err) => {

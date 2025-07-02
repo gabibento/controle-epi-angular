@@ -1,1 +1,5 @@
-<p>devolution-form works!</p>
+<form (ngSubmit)="create()">
+    <input type="date" name="devolutionDate" [(ngModel)]="devolution.devolutionDate">
+
+    <button type="submit">Criar Devolução</button>
+</form>
