@@ -11,21 +11,26 @@ import { Epi } from '../../../interfaces/Epi';
   selector: 'app-epi-loan-list',
   imports: [CommonModule, ListComponent],
   templateUrl: './epi-loan-list.html',
-  styleUrl: './epi-loan-list.css'
+  styleUrl: './epi-loan-list.css',
 })
 export class EpiLoanList {
   private epiId!: number;
   loans: Loan[] = [];
-  columns = ["userEmail", "pickupDate", "dueDate"];
+  columns = ['userEmail', 'pickupDate', 'dueDate'];
   epiName!: string;
   hasLoans = true;
   loading = true;
   error = false;
 
-  constructor(private loanService: LoanService, private epiService: EpiService, private route: ActivatedRoute, private router: Router){}
+  constructor(
+    private loanService: LoanService,
+    private epiService: EpiService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.epiId = Number(this.route.snapshot.paramMap.get("id"));
+    this.epiId = Number(this.route.snapshot.paramMap.get('id'));
     this.getEpi();
     this.getByEpi(this.epiId);
   }
@@ -37,11 +42,11 @@ export class EpiLoanList {
       },
       error: (err) => {
         console.log('Erro ao buscar EPI', err);
-      }
+      },
     });
   }
 
-  getByEpi(id: number){
+  getByEpi(id: number) {
     this.loanService.getByEpi(id).subscribe({
       next: (data) => {
         this.loans = data;
@@ -49,16 +54,22 @@ export class EpiLoanList {
         this.loading = false;
       },
       error: (err) => {
-        console.log(err)
+        console.log(err);
         this.error = true;
         this.loading = false;
-      }
-    })
+      },
+    });
   }
-  createLoan(){
-    this.router.navigate(['/loanForm'], {queryParams: { epiId: this.epiId}});
+  createLoan() {
+    this.router.navigate(['/loanForm'], { queryParams: { epiId: this.epiId } });
   }
-  updateEpi(){
-    this.router.navigate(['/epiEdit'], {queryParams: { id: this.epiId}});
+  updateEpi() {
+    this.router.navigate(['/epiEdit'], { queryParams: { id: this.epiId } });
+  }
+  removeEpi() {
+    this.epiService.remove(this.epiId).subscribe({
+      next: () => this.router.navigate(['/home']),
+      error: (err) => console.log(err)
+    });
   }
 }

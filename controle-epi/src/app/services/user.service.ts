@@ -4,21 +4,22 @@ import { User } from '../interfaces/User';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  private apiUrl = 'http://localhost:8080/users';
+  constructor(private http: HttpClient) {}
 
-  private apiUrl = "http://localhost:8080/users"
-  constructor(private http: HttpClient) { }
-
-  getAll(): Observable<User[]>{
+  getAll(): Observable<User[]> {
     return this.http.get<User[]>(this.apiUrl);
   }
-  getById(id: number): Observable<User>{
+  getById(id: number): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
   update(id: number, email: string) {
-    console.log(id);
-    return this.http.patch<User>(`${this.apiUrl}?id=${id}`, {email});
+    return this.http.patch<User>(`${this.apiUrl}?id=${id}`, { email });
+  }
+  remove(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }

@@ -60,4 +60,10 @@ export class UserLoanList {
     updateUser(){
     this.router.navigate(['/userEdit'], {queryParams: { id: this.userId}});
   }
+  removeUser(){
+    this.userService.remove(this.userId).subscribe({
+      next: () => this.router.navigate(["/home"]),
+      error: (err) => console.log(err)
+    })
+  }
 }

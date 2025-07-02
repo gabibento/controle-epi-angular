@@ -23,7 +23,9 @@ export class EpiService {
     return this.http.get<Epi>(`${this.apiUrl}/${id}`);
   }
   update(id: number, quantity: number) {
-    console.log(id);
-    return this.http.patch<Epi>(`${this.apiUrl}?id=${id}`, {quantity});
+    return this.http.patch<Epi>(`${this.apiUrl}?id=${id}`, { quantity });
+  }
+  remove(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }
