@@ -4,20 +4,24 @@ import { DevolutionFormInterface } from '../interfaces/DevolutionFormInterface';
 import { DevolutionInterface } from '../interfaces/DevolutionInterface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DevolutionService {
-  private apiUrl = "http://localhost:8080/devolutions"
+  private apiUrl = 'http://localhost:8080/devolutions';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  create(devolution: DevolutionFormInterface){
+  create(devolution: DevolutionFormInterface) {
     return this.http.post<DevolutionFormInterface>(this.apiUrl, devolution);
   }
-  getAll(){
+  getAll() {
     return this.http.get<DevolutionInterface[]>(this.apiUrl);
   }
-  getByLoan(id: number){
+  getByLoan(id: number) {
     return this.http.get<DevolutionInterface>(`${this.apiUrl}/loan/${id}`);
+  }
+
+  getByUser(userId: number) {
+    return this.http.get<DevolutionInterface[]>(`${this.apiUrl}/user/${userId}`);
   }
 }

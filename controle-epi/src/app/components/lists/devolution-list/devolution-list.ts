@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DevolutionInterface } from '../../../interfaces/DevolutionInterface';
 import { CommonModule } from '@angular/common';
 import { ListComponent } from '../list-component/list-component';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-devolution-list',
@@ -13,20 +14,45 @@ import { ListComponent } from '../list-component/list-component';
 })
 export class DevolutionList {
   devolutions: DevolutionInterface[] = [];
-  columns = ["epiName", "userName", "devolutionDate"];
+  columns = ['epiName', 'userName', 'devolutionDate'];
+
+  userId!: number;
+  userRole!: string;
 
   constructor(
     private devolutionService: DevolutionService,
-    private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private jwtHelper: JwtHelperService
   ) {}
 
   ngOnInit() {
-    this.getAll();
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = this.jwtHelper.decodeToken(token);
+      this.userId = decoded.id;
+      this.userRole = decoded.role;
+    }
+
+    if (this.userRole === 'ROLE_ADMIN') {
+      this.getAll();
+    } else if (this.userId) {
+      this.getByUser();
+    }
   }
 
   getAll() {
     this.devolutionService.getAll().subscribe({
+      next: (data) => {
+        this.devolutions = data;
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  getByUser() {
+    this.devolutionService.getByUser(this.userId).subscribe({
       next: (data) => {
         this.devolutions = data;
       },

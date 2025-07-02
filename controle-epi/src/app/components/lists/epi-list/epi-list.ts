@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ListComponent } from '../list-component/list-component';
 import { Epi } from '../../../interfaces/Epi';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-epi-list',
@@ -16,10 +17,17 @@ export class EpiList {
   epis: Epi[] = []
   columns = ["name", "quantity"]
 
-  constructor(private epiService: EpiService, private router: Router){}
+  constructor(private epiService: EpiService, private router: Router, private authService: AuthService){}
 
    ngOnInit(): void {
     this.getAll();
+  }
+  
+  getRole(){
+    return this.authService.getRole();
+  }
+  isAdmin(){
+    return this.getRole() == 'ROLE_ADMIN'
   }
 
   getAll(){
@@ -33,6 +41,8 @@ export class EpiList {
     })
   }
   getLoans(epi: Epi){
-    this.router.navigate(['/epis', epi.id, 'loans']);
+    if(this.isAdmin()){
+      this.router.navigate(['/epis', epi.id, 'loans']);
+    }
   }
 }
